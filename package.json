@@ -1,0 +1,13 @@
+{
+  "name": "liminia",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dexie": "^4.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}
