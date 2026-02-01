@@ -1,3 +1,5 @@
+import type { CityId } from './brand';
+
 // =============================================================================
 // Location Hierarchy Components
 // =============================================================================
@@ -7,7 +9,7 @@
  */
 export interface UrbanComponents {
   /** City ID (0-31) */
-  cityId: number;
+  cityId: CityId;
 
   /** Expansion layer: 0=urban core, 1-15=outside walls */
   expLayer: number;
@@ -30,7 +32,7 @@ export interface UrbanComponents {
  */
 export interface BuildingComponents {
   /** City ID (0-31) */
-  cityId: number;
+  cityId: CityId;
 
   /** Building type (0-7) */
   buildingType: BuildingType;

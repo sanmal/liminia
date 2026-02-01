@@ -23,6 +23,9 @@ export interface TagStorage {
 
   /** Situational effectiveness */
   situation: Uint8Array;
+
+  /** Maximum entities this storage can hold */
+  capacity: number;
 }
 
 // =============================================================================

@@ -1,6 +1,5 @@
-import type { EntityId } from './entity';
+import type { EntityId, ArchetypeId } from './brand';
 import type { WorldMarkType } from './marks';
-import type { ArchetypeId } from './archetype';
 
 // =============================================================================
 // Character State Storage (Separated Strategy)

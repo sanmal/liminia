@@ -1,4 +1,5 @@
 import type { CategoryType } from './constants';
+import type { EntityId } from './brand';
 
 // =============================================================================
 // Entity Storage (Separated Strategy Core)
@@ -37,7 +38,7 @@ export interface EntityStorage {
  * invalidating old handles.
  */
 export interface EntityHandle {
-  readonly id: number;
+  readonly id: EntityId;
   readonly generation: number;
 }
 
@@ -61,16 +62,5 @@ export interface EntityQueryResult {
   generation: number;
 }
 
-// =============================================================================
-// Type Guards
-// =============================================================================
-
-export type EntityId = number & { readonly __brand: 'EntityId' };
-
-/**
- * Branded type for compile-time safety.
- * Usage: const id = 42 as EntityId;
- */
-export function asEntityId(n: number): EntityId {
-  return n as EntityId;
-}
+// Re-export EntityId for convenience
+export type { EntityId } from './brand';

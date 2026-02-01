@@ -1,4 +1,6 @@
 import type { EntityStorage, EntityHandle } from '$lib/types/entity';
+import type { EntityId } from '$lib/types/brand';
+import { entityId } from '$lib/types/brand';
 
 // =============================================================================
 // Handle Validation
@@ -54,7 +56,7 @@ export function isValidHandle(
 export function resolveHandle(
   storage: EntityStorage,
   handle: EntityHandle
-): number | null {
+): EntityId | null {
   if (!isValidHandle(storage, handle)) {
     return null;
   }
@@ -88,7 +90,7 @@ export function getHandle(
   }
 
   return {
-    id,
-    generation: storage.generations[id],
+    id: entityId(id),
+    generation: storage.generations[id]!,
   };
 }

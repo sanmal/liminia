@@ -1,5 +1,6 @@
 import type { AxisTagType, DirectionTagType } from './tags';
 import type { WorldMarkType } from './marks';
+import type { ArchetypeId } from './brand';
 
 // =============================================================================
 // Archetype Storage (Separated Strategy)
@@ -130,4 +131,8 @@ export const ARCHETYPE = {
   OUTCAST: 31,
 } as const;
 
-export type ArchetypeId = (typeof ARCHETYPE)[keyof typeof ARCHETYPE];
+/** Literal type for ARCHETYPE constant values (0-31) */
+export type ArchetypeKey = (typeof ARCHETYPE)[keyof typeof ARCHETYPE];
+
+// Re-export ArchetypeId branded type for convenience
+export type { ArchetypeId } from './brand';

@@ -2,6 +2,9 @@
 // Liminia Type Definitions - Barrel Export
 // =============================================================================
 
+// Branded Types (must be first - other modules depend on these)
+export * from './brand';
+
 // Constants
 export * from './constants';
 

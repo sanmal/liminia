@@ -1,5 +1,6 @@
 import type { EntityStorage, EntityHandle, CreateEntityOptions } from '$lib/types';
 import { CATEGORY } from '$lib/types';
+import { entityId } from '$lib/types/brand';
 
 /**
  * Create a new entity in storage.
@@ -41,8 +42,8 @@ export function createEntity(
   }
 
   return {
-    id,
-    generation: storage.generations[id],
+    id: entityId(id),
+    generation: storage.generations[id]!,
   };
 }
 

@@ -32,11 +32,11 @@ Liminia/
 
 | Situation | Action |
 |-----------|--------|
-| Implementing Entity ID operations | Read `10_Core_Specs/Entity_ID_v5_*.md` |
-| Character system work | Read `10_Core_Specs/Character_Template_v6_*.md` |
+| Implementing Entity ID operations | Read `10_Core_Specs/Entity_ID_v*_*.md` |
+| Character system work | Read `10_Core_Specs/Character_Template_v*_*.md` |
 | IAUS decision logic | Read `20_System_Design/IAUS_*.md` |
 | Platform-specific code | Read `50_Platform_Ops/PWA_*.md` |
-
+| Creating new branded types or accessors | Read `docs/type-safety-v1.md` |
 ---
 
 ## Master Index (v5.5)
@@ -271,6 +271,15 @@ Considerations → Response Curves → Aggregation → Selection
 - Use TypedArray for performance-critical data
 - Avoid `any` type
 
+### Type Safety (v1)
+
+- **Branded Types required**: Use `EntityId`, `ArchetypeId`, `CityId`. Never use raw `number` for ID parameters
+- **Accessor-only TypedArray access**: `!` (non-null assertion) allowed only inside accessor functions. Direct `array[id]!` forbidden
+- **No enums**: `erasableSyntaxOnly` enabled. Use `as const` object + derived type
+- **`import type` required**: Type-only imports must use `import type { Foo }` (`verbatimModuleSyntax` enabled)
+- **`noUncheckedIndexedAccess` enabled**: Array/Record access returns `| undefined`. Handle it
+- Full spec: `docs/type-safety-v1.md`
+
 ### Naming
 
 - Files: `kebab-case.ts`
@@ -315,6 +324,18 @@ import * as Types from '$lib/types';
 ### Repository
 
 - **GitHub**: `git@github.com:sanmal/liminia.git`
+
+### Git/Jujutsu運用
+
+- VCSはJujutsu (jj) を使用
+- pushは常に`main`ブックマークへ
+- push手順:
+  ```bash
+  jj describe -m "コミットメッセージ"
+  jj bookmark set main -r @    # mainを現在のコミットに移動
+  jj new                       # 新しい作業コミットを作成
+  jj git push                  # pushする
+  ```
 
 ### File Locations
 
