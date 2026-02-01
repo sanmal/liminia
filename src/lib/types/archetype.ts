@@ -25,6 +25,15 @@ export interface ArchetypeStorage {
   /** Primary WorldMark affinity */
   worldMarks: Uint8Array;
 
+  /** Active decision affinity (0-100) */
+  weightActive: Uint8Array;
+
+  /** Passive decision affinity (0-100) */
+  weightPassive: Uint8Array;
+
+  /** Social decision affinity (0-100) */
+  weightSocial: Uint8Array;
+
   /** Next archetype ID */
   nextId: number;
 
@@ -43,6 +52,9 @@ export interface ArchetypeDefinition {
   secondaryAxis: AxisTagType;
   motivation: number; // MotivationTagType
   worldMark: WorldMarkType;
+  weightActive: number;
+  weightPassive: number;
+  weightSocial: number;
 }
 
 // =============================================================================

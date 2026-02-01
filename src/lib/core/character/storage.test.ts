@@ -15,6 +15,8 @@ import {
   setLocationId,
   getRestState,
   setRestState,
+  getArchetypeId,
+  setArchetypeId,
 } from './storage';
 import { entityId } from '$lib/types/brand';
 
@@ -42,6 +44,7 @@ describe('createCharacterStateStorage', () => {
     expect(s.dejavuBondsTotal[0]).toBe(0);
     expect(s.locationIds[0]).toBe(0);
     expect(s.restStates[0]).toBe(0);
+    expect(s.archetypeIds[0]).toBe(0);
   });
 });
 
@@ -109,5 +112,35 @@ describe('Location and RestState accessors', () => {
     const s = createCharacterStateStorage(8);
     setRestState(s, id0, 3); // FULL_REST
     expect(getRestState(s, id0)).toBe(3);
+  });
+});
+
+describe('Archetype accessors', () => {
+  it('should get and set archetypeId', () => {
+    const s = createCharacterStateStorage(8);
+    setArchetypeId(s, id0, 5);
+    expect(getArchetypeId(s, id0)).toBe(5);
+    expect(getArchetypeId(s, id1)).toBe(0); // Other entity unaffected
+  });
+
+  it('should default to 0 when unset', () => {
+    const s = createCharacterStateStorage(8);
+    expect(getArchetypeId(s, id0)).toBe(0);
+  });
+
+  it('should clamp archetypeId to 0-63 range', () => {
+    const s = createCharacterStateStorage(8);
+    setArchetypeId(s, id0, 100); // Over max
+    expect(getArchetypeId(s, id0)).toBe(63);
+
+    setArchetypeId(s, id1, -5); // Under min
+    expect(getArchetypeId(s, id1)).toBe(0);
+  });
+
+  it('should reset archetypeId to 0 on clearCharacterStateStorage', () => {
+    const s = createCharacterStateStorage(8);
+    setArchetypeId(s, id0, 10);
+    clearCharacterStateStorage(s);
+    expect(getArchetypeId(s, id0)).toBe(0);
   });
 });

@@ -24,6 +24,9 @@ export interface CharacterStateStorage {
   /** Recovery state (rest level) */
   restStates: Uint8Array;
 
+  /** Assigned archetype IDs (0-63) */
+  archetypeIds: Uint8Array;
+
   /** Capacity */
   capacity: number;
 }

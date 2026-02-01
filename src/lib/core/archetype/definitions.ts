@@ -17,6 +17,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.OTHERS,
     motivation: MOTIVATION_TAG.PROTECTION,
     worldMark: WORLD_MARK.BONE,
+    weightActive: 70,
+    weightPassive: 60,
+    weightSocial: 40,
   },
   {
     name: 'Sentinel',
@@ -25,6 +28,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.STABLE,
     motivation: MOTIVATION_TAG.PROTECTION,
     worldMark: WORLD_MARK.EYE,
+    weightActive: 60,
+    weightPassive: 75,
+    weightSocial: 30,
   },
   {
     name: 'Defender',
@@ -33,6 +39,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.STABLE,
     motivation: MOTIVATION_TAG.JUSTICE,
     worldMark: WORLD_MARK.BONE,
+    weightActive: 75,
+    weightPassive: 55,
+    weightSocial: 35,
   },
   {
     name: 'Warden',
@@ -41,6 +50,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.CAUTIOUS,
     motivation: MOTIVATION_TAG.JUSTICE,
     worldMark: WORLD_MARK.EAR,
+    weightActive: 65,
+    weightPassive: 70,
+    weightSocial: 35,
   },
 
   // ── Leaders (4-7): Social + Extra ─────────────────────
@@ -51,6 +63,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.ORDER,
     motivation: MOTIVATION_TAG.POWER,
     worldMark: WORLD_MARK.BLOOD,
+    weightActive: 70,
+    weightPassive: 40,
+    weightSocial: 75,
   },
   {
     name: 'Diplomat',
@@ -59,6 +74,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.OTHERS,
     motivation: MOTIVATION_TAG.BELONGING,
     worldMark: WORLD_MARK.BREATH,
+    weightActive: 30,
+    weightPassive: 45,
+    weightSocial: 85,
   },
   {
     name: 'Merchant',
@@ -67,6 +85,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.CAUTIOUS,
     motivation: MOTIVATION_TAG.WEALTH,
     worldMark: WORLD_MARK.BREATH,
+    weightActive: 40,
+    weightPassive: 35,
+    weightSocial: 80,
   },
   {
     name: 'Preacher',
@@ -75,6 +96,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.OTHERS,
     motivation: MOTIVATION_TAG.RECOGNITION,
     worldMark: WORLD_MARK.TEAR,
+    weightActive: 35,
+    weightPassive: 50,
+    weightSocial: 80,
   },
 
   // ── Seekers (8-11): Knowledge + Cautious ──────────────
@@ -85,6 +109,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.INTRO,
     motivation: MOTIVATION_TAG.KNOWLEDGE,
     worldMark: WORLD_MARK.EYE,
+    weightActive: 25,
+    weightPassive: 80,
+    weightSocial: 45,
   },
   {
     name: 'Investigator',
@@ -93,6 +120,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.INTRO,
     motivation: MOTIVATION_TAG.KNOWLEDGE,
     worldMark: WORLD_MARK.EYE,
+    weightActive: 55,
+    weightPassive: 65,
+    weightSocial: 40,
   },
   {
     name: 'Sage',
@@ -101,6 +131,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.STABLE,
     motivation: MOTIVATION_TAG.MASTERY,
     worldMark: WORLD_MARK.TEAR,
+    weightActive: 20,
+    weightPassive: 85,
+    weightSocial: 50,
   },
   {
     name: 'Archivist',
@@ -109,6 +142,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.ORDER,
     motivation: MOTIVATION_TAG.KNOWLEDGE,
     worldMark: WORLD_MARK.EAR,
+    weightActive: 15,
+    weightPassive: 90,
+    weightSocial: 35,
   },
 
   // ── Creators (12-15): Creation + Stable ───────────────
@@ -119,6 +155,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.SELF,
     motivation: MOTIVATION_TAG.CREATION,
     worldMark: WORLD_MARK.SKIN,
+    weightActive: 50,
+    weightPassive: 65,
+    weightSocial: 45,
   },
   {
     name: 'Builder',
@@ -127,6 +166,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.ORDER,
     motivation: MOTIVATION_TAG.CREATION,
     worldMark: WORLD_MARK.BONE,
+    weightActive: 65,
+    weightPassive: 55,
+    weightSocial: 40,
   },
   {
     name: 'Healer',
@@ -135,6 +177,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.OTHERS,
     motivation: MOTIVATION_TAG.PROTECTION,
     worldMark: WORLD_MARK.TEAR,
+    weightActive: 30,
+    weightPassive: 70,
+    weightSocial: 65,
   },
   {
     name: 'Cultivator',
@@ -143,6 +188,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.CAUTIOUS,
     motivation: MOTIVATION_TAG.CREATION,
     worldMark: WORLD_MARK.SKIN,
+    weightActive: 45,
+    weightPassive: 70,
+    weightSocial: 50,
   },
 
   // ── Adventurers (16-19): Freedom + Bold ───────────────
@@ -153,6 +201,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.EXTRA,
     motivation: MOTIVATION_TAG.FREEDOM,
     worldMark: WORLD_MARK.EYE,
+    weightActive: 85,
+    weightPassive: 30,
+    weightSocial: 40,
   },
   {
     name: 'Pioneer',
@@ -161,6 +212,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.ORDER,
     motivation: MOTIVATION_TAG.FREEDOM,
     worldMark: WORLD_MARK.BREATH,
+    weightActive: 80,
+    weightPassive: 25,
+    weightSocial: 50,
   },
   {
     name: 'Nomad',
@@ -169,6 +223,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.INTRO,
     motivation: MOTIVATION_TAG.FREEDOM,
     worldMark: WORLD_MARK.EAR,
+    weightActive: 75,
+    weightPassive: 35,
+    weightSocial: 35,
   },
   {
     name: 'Wanderer',
@@ -177,6 +234,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.REACTIVE,
     motivation: MOTIVATION_TAG.FREEDOM,
     worldMark: WORLD_MARK.BREATH,
+    weightActive: 70,
+    weightPassive: 40,
+    weightSocial: 30,
   },
 
   // ── Warriors (20-23): Combat + Reactive ───────────────
@@ -187,6 +247,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.BOLD,
     motivation: MOTIVATION_TAG.SURVIVAL,
     worldMark: WORLD_MARK.BLOOD,
+    weightActive: 95,
+    weightPassive: 10,
+    weightSocial: 20,
   },
   {
     name: 'Duelist',
@@ -195,6 +258,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.SELF,
     motivation: MOTIVATION_TAG.MASTERY,
     worldMark: WORLD_MARK.BLOOD,
+    weightActive: 85,
+    weightPassive: 25,
+    weightSocial: 30,
   },
   {
     name: 'Hunter',
@@ -203,6 +269,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.CAUTIOUS,
     motivation: MOTIVATION_TAG.MASTERY,
     worldMark: WORLD_MARK.BLOOD,
+    weightActive: 80,
+    weightPassive: 40,
+    weightSocial: 25,
   },
   {
     name: 'Veteran',
@@ -211,6 +280,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.STABLE,
     motivation: MOTIVATION_TAG.PROTECTION,
     worldMark: WORLD_MARK.BONE,
+    weightActive: 70,
+    weightPassive: 50,
+    weightSocial: 45,
   },
 
   // ── Shadows (24-27): Stealth + Self ───────────────────
@@ -221,6 +293,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.REACTIVE,
     motivation: MOTIVATION_TAG.POWER,
     worldMark: WORLD_MARK.SHADOW,
+    weightActive: 80,
+    weightPassive: 35,
+    weightSocial: 20,
   },
   {
     name: 'Thief',
@@ -229,6 +304,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.CAUTIOUS,
     motivation: MOTIVATION_TAG.WEALTH,
     worldMark: WORLD_MARK.SHADOW,
+    weightActive: 70,
+    weightPassive: 40,
+    weightSocial: 35,
   },
   {
     name: 'Spy',
@@ -237,6 +315,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.INTRO,
     motivation: MOTIVATION_TAG.KNOWLEDGE,
     worldMark: WORLD_MARK.SHADOW,
+    weightActive: 55,
+    weightPassive: 45,
+    weightSocial: 65,
   },
   {
     name: 'Trickster',
@@ -245,6 +326,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.CHAOS,
     motivation: MOTIVATION_TAG.FREEDOM,
     worldMark: WORLD_MARK.SHADOW,
+    weightActive: 60,
+    weightPassive: 30,
+    weightSocial: 70,
   },
 
   // ── Outcasts (28-31): Chaos + Survival ────────────────
@@ -255,6 +339,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.REACTIVE,
     motivation: MOTIVATION_TAG.SURVIVAL,
     worldMark: WORLD_MARK.SKIN,
+    weightActive: 65,
+    weightPassive: 60,
+    weightSocial: 25,
   },
   {
     name: 'Hermit',
@@ -263,6 +350,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.INTRO,
     motivation: MOTIVATION_TAG.SURVIVAL,
     worldMark: WORLD_MARK.EAR,
+    weightActive: 30,
+    weightPassive: 85,
+    weightSocial: 15,
   },
   {
     name: 'Rebel',
@@ -271,6 +361,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.BOLD,
     motivation: MOTIVATION_TAG.FREEDOM,
     worldMark: WORLD_MARK.BLOOD,
+    weightActive: 80,
+    weightPassive: 20,
+    weightSocial: 50,
   },
   {
     name: 'Outcast',
@@ -279,6 +372,9 @@ export const ARCHETYPE_DEFINITIONS: readonly ArchetypeDefinition[] = [
     secondaryAxis: AXIS_TAG.SELF,
     motivation: MOTIVATION_TAG.SURVIVAL,
     worldMark: WORLD_MARK.SHADOW,
+    weightActive: 55,
+    weightPassive: 50,
+    weightSocial: 20,
   },
 ] as const;
 

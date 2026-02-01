@@ -18,6 +18,7 @@ export function createCharacterStateStorage(
     dejavuBondsTotal: new Uint32Array(capacity),
     locationIds: new Uint32Array(capacity),
     restStates: new Uint8Array(capacity),
+    archetypeIds: new Uint8Array(capacity),
     capacity,
   };
 }
@@ -32,6 +33,7 @@ export function clearCharacterStateStorage(s: CharacterStateStorage): void {
   s.dejavuBondsTotal.fill(0);
   s.locationIds.fill(0);
   s.restStates.fill(0);
+  s.archetypeIds.fill(0);
 }
 
 // ─── HP Accessors ─────────────────────────────────────
@@ -108,6 +110,18 @@ export function getRestState(s: CharacterStateStorage, id: EntityId): number {
 /** Set rest state. */
 export function setRestState(s: CharacterStateStorage, id: EntityId, state: number): void {
   s.restStates[id] = state;
+}
+
+// ─── Archetype Accessors ──────────────────────────────
+
+/** Get assigned archetype ID. */
+export function getArchetypeId(s: CharacterStateStorage, id: EntityId): number {
+  return s.archetypeIds[id]!;
+}
+
+/** Set assigned archetype ID (0-63). */
+export function setArchetypeId(s: CharacterStateStorage, id: EntityId, archetypeId: number): void {
+  s.archetypeIds[id] = Math.max(0, Math.min(63, archetypeId));
 }
 
 // ─── Global Instance ──────────────────────────────────

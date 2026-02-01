@@ -6,6 +6,9 @@ import {
   getArchetypeInfo,
   getArchetypeByName,
   getArchetypeCount,
+  getWeightActive,
+  getWeightPassive,
+  getWeightSocial,
 } from './storage';
 import { DIRECTION_TAG, AXIS_TAG, MOTIVATION_TAG } from '$lib/types/tags';
 import { WORLD_MARK } from '$lib/types/marks';
@@ -19,6 +22,9 @@ const SAMPLE_DEF: ArchetypeDefinition = {
   secondaryAxis: AXIS_TAG.OTHERS,
   motivation: MOTIVATION_TAG.PROTECTION,
   worldMark: WORLD_MARK.BONE,
+  weightActive: 70,
+  weightPassive: 60,
+  weightSocial: 40,
 };
 
 describe('createArchetypeStorage', () => {
@@ -123,5 +129,67 @@ describe('getArchetypeCount', () => {
     expect(getArchetypeCount(s)).toBe(0);
     registerArchetype(s, SAMPLE_DEF);
     expect(getArchetypeCount(s)).toBe(1);
+  });
+});
+
+describe('Direction weights', () => {
+  it('should store weightActive, weightPassive, weightSocial from definition', () => {
+    const s = createArchetypeStorage(8);
+    const id = registerArchetype(s, SAMPLE_DEF);
+    expect(getWeightActive(s, id)).toBe(70);
+    expect(getWeightPassive(s, id)).toBe(60);
+    expect(getWeightSocial(s, id)).toBe(40);
+  });
+
+  it('should clamp weights to 0-100 range', () => {
+    const s = createArchetypeStorage(8);
+    const def: ArchetypeDefinition = {
+      ...SAMPLE_DEF,
+      weightActive: 120,
+      weightPassive: -10,
+      weightSocial: 50,
+    };
+    const id = registerArchetype(s, def);
+    expect(getWeightActive(s, id)).toBe(100); // Clamped from 120
+    expect(getWeightPassive(s, id)).toBe(0); // Clamped from -10
+    expect(getWeightSocial(s, id)).toBe(50);
+  });
+
+  it('should store different weights for different archetypes', () => {
+    const s = createArchetypeStorage(8);
+    const def1: ArchetypeDefinition = {
+      ...SAMPLE_DEF,
+      name: 'Berserker',
+      weightActive: 95,
+      weightPassive: 10,
+      weightSocial: 20,
+    };
+    const def2: ArchetypeDefinition = {
+      ...SAMPLE_DEF,
+      name: 'Hermit',
+      weightActive: 30,
+      weightPassive: 85,
+      weightSocial: 15,
+    };
+
+    const id1 = registerArchetype(s, def1);
+    const id2 = registerArchetype(s, def2);
+
+    expect(getWeightActive(s, id1)).toBe(95);
+    expect(getWeightPassive(s, id1)).toBe(10);
+    expect(getWeightSocial(s, id1)).toBe(20);
+
+    expect(getWeightActive(s, id2)).toBe(30);
+    expect(getWeightPassive(s, id2)).toBe(85);
+    expect(getWeightSocial(s, id2)).toBe(15);
+  });
+
+  it('should reset weights to 0 on clearArchetypeStorage', () => {
+    const s = createArchetypeStorage(8);
+    const id = registerArchetype(s, SAMPLE_DEF);
+    clearArchetypeStorage(s);
+    expect(s.weightActive[id]).toBe(0);
+    expect(s.weightPassive[id]).toBe(0);
+    expect(s.weightSocial[id]).toBe(0);
   });
 });

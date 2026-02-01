@@ -23,6 +23,9 @@ export function createArchetypeStorage(
     secondaryAxis: new Uint8Array(capacity),
     motivations: new Uint8Array(capacity),
     worldMarks: new Uint8Array(capacity),
+    weightActive: new Uint8Array(capacity),
+    weightPassive: new Uint8Array(capacity),
+    weightSocial: new Uint8Array(capacity),
     nextId: 0,
     capacity,
   };
@@ -38,6 +41,9 @@ export function clearArchetypeStorage(storage: ArchetypeStorage): void {
   storage.secondaryAxis.fill(0);
   storage.motivations.fill(0);
   storage.worldMarks.fill(0);
+  storage.weightActive.fill(0);
+  storage.weightPassive.fill(0);
+  storage.weightSocial.fill(0);
   storage.nextId = 0;
 }
 
@@ -60,6 +66,9 @@ export function registerArchetype(
   storage.secondaryAxis[id] = def.secondaryAxis;
   storage.motivations[id] = def.motivation;
   storage.worldMarks[id] = def.worldMark;
+  storage.weightActive[id] = Math.min(100, Math.max(0, def.weightActive));
+  storage.weightPassive[id] = Math.min(100, Math.max(0, def.weightPassive));
+  storage.weightSocial[id] = Math.min(100, Math.max(0, def.weightSocial));
   storage.nextId++;
 
   return archetypeId(id);
@@ -108,6 +117,27 @@ export function getArchetypeByName(
  */
 export function getArchetypeCount(storage: ArchetypeStorage): number {
   return storage.nextId;
+}
+
+/**
+ * Get active decision weight for archetype.
+ */
+export function getWeightActive(storage: ArchetypeStorage, id: ArchetypeId): number {
+  return storage.weightActive[id]!;
+}
+
+/**
+ * Get passive decision weight for archetype.
+ */
+export function getWeightPassive(storage: ArchetypeStorage, id: ArchetypeId): number {
+  return storage.weightPassive[id]!;
+}
+
+/**
+ * Get social decision weight for archetype.
+ */
+export function getWeightSocial(storage: ArchetypeStorage, id: ArchetypeId): number {
+  return storage.weightSocial[id]!;
 }
 
 /** Global ArchetypeStorage instance */
