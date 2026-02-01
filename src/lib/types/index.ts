@@ -23,3 +23,6 @@ export * from './archetype';
 
 // Character System
 export * from './character';
+
+// IAUS System
+export * from './iaus';
